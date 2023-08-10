@@ -1,3 +1,5 @@
+import Page from "@/components/foundations/Page";
+
 export default function Search() {
-  return <h1>Search</h1>;
+  return <Page title="Search"></Page>;
 }
