@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const styles = {
   container: {
     display: "flex",
@@ -19,12 +21,19 @@ const styles = {
   navItems: {
     padding: "10px 20px",
   },
+  logoLink: {
+    display: "block",
+    width: "100%",
+    height: "100%",
+  },
 };
 
 export default function Header() {
   return (
     <header style={styles.container}>
-      <div style={styles.logo}></div>
+      <div style={styles.logo}>
+        <Link style={styles.logoLink} href="/" />
+      </div>
       <nav>
         <ul style={styles.navList}>
           <li>
