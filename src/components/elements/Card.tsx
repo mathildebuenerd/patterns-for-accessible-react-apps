@@ -3,7 +3,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     padding: "10px",
-    width: "300px",
+    width: "220px",
     boxShadow: "0px 3px 10px lightgrey",
     borderRadius: "5px",
     margin: "0 20px 20px 0",
@@ -12,7 +12,6 @@ const styles = {
     image: {
       width: "100%",
       height: "200px",
-      backgroundColor: "var(--background-color-layout)",
       objectFit: "none",
     },
   },
@@ -34,14 +33,21 @@ export default function Card({
   description = "Description",
   imageSrc,
 }: Props) {
+  const classname = description ? `type-${description}-bg-color` : "";
+  const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1);
   return (
     <article style={styles.container}>
       {imageSrc ? (
-        <img style={styles.placeholders.image} src={imageSrc} alt="" />
+        <img
+          className={classname}
+          style={styles.placeholders.image}
+          src={imageSrc}
+          alt=""
+        />
       ) : (
         <div style={styles.placeholders.image}></div>
       )}
-      <h3 style={styles.title}>{title}</h3>
+      <h3 style={styles.title}>{capitalizedTitle}</h3>
       <p>{description}</p>
     </article>
   );

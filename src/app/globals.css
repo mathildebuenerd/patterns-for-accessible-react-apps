@@ -1,6 +1,41 @@
 :root {
   --background-color-layout: lightgrey;
+  --type-color-normal-bg: rgb(224, 224, 224);
+  --type-color-fighting-bg: rgb(142, 117, 117);
+  --type-color-flying-bg: rgb(210, 200, 255);
+  --type-color-poison-bg: rgb(235, 179, 255);
+  --type-color-ground-bg: rgb(214, 195, 180);
+  --type-color-rock-bg: rgb(199, 199, 199);
+  --type-color-bug-bg: rgb(180, 234, 195);
+  --type-color-ghost-bg: rgb(206, 178, 255);
+  --type-color-steel-bg: rgb(197, 199, 208);
+  --type-color-fire-bg: rgb(255, 179, 179);
+  --type-color-water-bg: rgb(159, 191, 255);
+  --type-color-grass-bg: rgb(159, 255, 152);
+  --type-color-electric-bg: rgb(245, 255, 171);
+  --type-color-psychic-bg: rgb(194, 181, 255);
+  --type-color-ice-bg: rgb(171, 244, 255);
+  --type-color-dragon-bg: rgb(168, 149, 255);
+  --type-color-fairy-bg: rgb(253, 190, 255);
 }
+
+.type-normal-bg-color { background-color: var(--type-color-normal-bg); }
+.type-fighting-bg-color { background-color: var(--type-color-fighting-bg); }
+.type-flying-bg-color { background-color: var(--type-color-flying-bg); }
+.type-poison-bg-color { background-color: var(--type-color-poison-bg); }
+.type-ground-bg-color { background-color: var(--type-color-ground-bg); }
+.type-rock-bg-color { background-color: var(--type-color-rock-bg); }
+.type-bug-bg-color { background-color: var(--type-color-bug-bg); }
+.type-ghost-bg-color { background-color: var(--type-color-ghost-bg); }
+.type-steel-bg-color { background-color: var(--type-color-steel-bg); }
+.type-fire-bg-color { background-color: var(--type-color-fire-bg); }
+.type-water-bg-color { background-color: var(--type-color-water-bg); }
+.type-grass-bg-color { background-color: var(--type-color-grass-bg); }
+.type-electric-bg-color { background-color: var(--type-color-electric-bg); }
+.type-psychic-bg-color { background-color: var(--type-color-psychic-bg); }
+.type-ice-bg-color { background-color: var(--type-color-ice-bg); }
+.type-dragon-bg-color { background-color: var(--type-color-dragon-bg); }
+.type-fairy-bg-color { background-color: var(--type-color-fairy-bg); }
 
 * {
   box-sizing: border-box;
