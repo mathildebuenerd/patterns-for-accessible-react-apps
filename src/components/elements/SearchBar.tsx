@@ -37,8 +37,6 @@ export default function SearchBar() {
     const searchUrl = new URL("/search", window.location.origin);
     searchUrl.searchParams.append("q", event.target.value);
     router.push(searchUrl.pathname + searchUrl.search);
-
-    console.log({ searchUrl });
   };
 
   return (
