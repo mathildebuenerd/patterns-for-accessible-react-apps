@@ -1,6 +1,6 @@
 "use client";
 
-import pokemonList from "../../../database/pokemon-list-251.json" assert { type: "json" };
+import * as PokeAPI from "@/api/methods";
 import Card from "@/components/elements/Card";
 import Page from "@/components/foundations/Page";
 import { useSearchParams } from "next/navigation";
@@ -12,49 +12,6 @@ const styles = {
     flexWrap: "wrap",
   },
 };
-
-const DEFAULT_LIMIT = 9;
-
-function search({ query }: { query: string | null }) {
-  return pokemonList.results.filter((pokemon) =>
-    pokemon.name.includes(query || ""),
-  );
-}
-
-function getData({
-  query,
-  limit = DEFAULT_LIMIT,
-}: {
-  query: string | null;
-  limit?: number;
-}) {
-  const results = search({ query });
-
-  // Keep only results within limit
-  const displayedResults = results.slice(0, limit);
-
-  return Promise.all(
-    displayedResults.map((result) => {
-      const fetchUrl = new URL("", result.url);
-
-      const promise = fetch(fetchUrl);
-
-      return promise
-        .then((response) => {
-          if (!response.ok) {
-            // This will activate the closest `error.js` Error Boundary
-            throw new Error("Failed to fetch data");
-          }
-
-          return response.json();
-        })
-        .then((data) => data)
-        .catch(() => {
-          throw new Error("Error while fetching data");
-        });
-    }),
-  );
-}
 
 interface Pokemon {
   name: string;
@@ -69,7 +26,7 @@ export default function Search() {
 
   useEffect(() => {
     async function getPokemons() {
-      const response = await getData({ query: searchQuery });
+      const response = await PokeAPI.getData({ query: searchQuery });
 
       const parsedCards = response.reduce((acc: Pokemon[], card) => {
         acc.push({
