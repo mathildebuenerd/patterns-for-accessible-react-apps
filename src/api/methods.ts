@@ -2,20 +2,31 @@ import pokemonList from "../../database/pokemon-list-251.json" assert { type: "j
 
 export const DEFAULT_LIMIT = 9;
 
-export function search({ query }: { query: string | null }) {
-  return pokemonList.results.filter((pokemon) =>
-    pokemon.name.includes(query || ""),
-  );
+export function search({
+  query,
+  list,
+}: {
+  query?: string | null;
+  list?: any[];
+}) {
+  const database = list ? list : pokemonList.results;
+
+  if (!query) return database;
+
+  return database.filter((pokemon) => pokemon.name.includes(query || ""));
 }
 
 export function getData({
   query,
   limit = DEFAULT_LIMIT,
+  list,
 }: {
-  query: string | null;
+  query?: string | null;
   limit?: number;
+  // Array of pokemons from the local database "pokemonList"
+  list?: any[];
 }) {
-  const results = search({ query });
+  const results = search({ query, list });
 
   // Keep only results within limit
   const displayedResults = results.slice(0, limit);
@@ -41,4 +52,14 @@ export function getData({
         });
     }),
   );
+}
+
+export function getFavourites() {
+  const favorites = ["chikorita", "tangela", "misdreavus", "celebi"];
+
+  const results = pokemonList.results.filter((pokemon) =>
+    favorites.includes(pokemon.name),
+  );
+
+  return getData({ list: results });
 }
