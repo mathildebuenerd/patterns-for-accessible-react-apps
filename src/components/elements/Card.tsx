@@ -13,6 +13,7 @@ const styles = {
       width: "100%",
       height: "200px",
       backgroundColor: "var(--background-color-layout)",
+      objectFit: "none",
     },
   },
   title: {
@@ -22,12 +23,26 @@ const styles = {
   },
 };
 
-export default function Card() {
+interface Props {
+  title?: string;
+  description?: string;
+  imageSrc?: string;
+}
+
+export default function Card({
+  title = "Title",
+  description = "Description",
+  imageSrc,
+}: Props) {
   return (
     <article style={styles.container}>
-      <div style={styles.placeholders.image}></div>
-      <h3 style={styles.title}>Title</h3>
-      <p></p>
+      {imageSrc ? (
+        <img style={styles.placeholders.image} src={imageSrc} alt="" />
+      ) : (
+        <div style={styles.placeholders.image}></div>
+      )}
+      <h3 style={styles.title}>{title}</h3>
+      <p>{description}</p>
     </article>
   );
 }

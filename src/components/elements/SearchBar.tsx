@@ -44,7 +44,7 @@ export default function SearchBar() {
   return (
     <div style={styles.container}>
       <label style={styles.label} htmlFor={searchBarId}>
-        Search products
+        Search Pokémons
       </label>
       <input
         style={styles.input}
