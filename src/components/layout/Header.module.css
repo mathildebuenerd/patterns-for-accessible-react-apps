@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-family: Nabla, cursive;
+  font-size: 2em;
+  font-variation-settings: "EDPT" 50;
+  background-color: var(--color-blue);
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 5px solid var(--color-yellow);
+  box-shadow: 0px 0px 0px 4px var(--color-pink);
+}
+
+.navList {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.navItems {
+  padding: 10px 20px;
+}

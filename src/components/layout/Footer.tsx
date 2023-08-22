@@ -1,9 +1,5 @@
-const styles = {
-  container: {
-    display: "flex",
-  },
-};
+import styles from "./Footer.module.css";
 
 export default function Footer() {
-  return <footer style={styles.container}></footer>;
+  return <footer className={styles.container}></footer>;
 }

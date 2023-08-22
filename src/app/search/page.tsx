@@ -6,12 +6,7 @@ import Page from "@/components/foundations/Page";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const styles = {
-  section: {
-    display: "flex",
-    flexWrap: "wrap",
-  },
-};
+import styles from "./page.module.css";
 
 interface Pokemon {
   name: string;
@@ -57,7 +52,7 @@ export default function Search() {
   const title = searchQuery ? `Search for "${searchQuery}"` : "Search";
   return (
     <Page title={title}>
-      <section style={styles.section}>
+      <section className={styles.section}>
         <>
           {pokemons
             ? pokemons.map((pokemon, index) => (

@@ -2,21 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 
-const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  label: {
-    marginBottom: "10px",
-  },
-  input: {
-    border: "1px solid lightgrey",
-    fontSize: "1.1em",
-    padding: "10px",
-    marginBottom: "20px",
-  },
-};
+import styles from "./SearchBar.module.css";
 
 const searchBarId = "search-bar-input";
 
@@ -40,12 +26,12 @@ export default function SearchBar() {
   };
 
   return (
-    <div style={styles.container}>
-      <label style={styles.label} htmlFor={searchBarId}>
+    <div className={styles.container}>
+      <label className={styles.label} htmlFor={searchBarId}>
         Search Pokémons
       </label>
       <input
-        style={styles.input}
+        className={styles.input}
         id={searchBarId}
         type="search"
         onKeyDown={handleKeyDown}

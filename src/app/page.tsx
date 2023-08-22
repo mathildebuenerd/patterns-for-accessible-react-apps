@@ -4,22 +4,10 @@ import * as PokeAPI from "@/api/methods";
 import { useEffect, useState } from "react";
 
 import Image from "next/image";
-// import styles from "./page.module.css";
 import Page from "@/components/foundations/Page";
 import Card from "@/components/elements/Card";
 
-const styles = {
-  section: {
-    marginBottom: "10px",
-  },
-  cardContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-  },
-  heading: {
-    marginBottom: "20px",
-  },
-};
+import styles from "./page.module.css";
 
 export default function Home() {
   const [favourites, setFavourites] = useState<Pokemon[] | null>(null);
@@ -54,9 +42,9 @@ export default function Home() {
 
   return (
     <Page title="Home">
-      <section style={styles.section}>
-        <h2 style={styles.heading}>My favourites</h2>
-        <div style={styles.cardContainer}>
+      <section className={styles.section}>
+        <h2 className={styles.heading}>My favourites</h2>
+        <div className={styles.cardContainer}>
           {favourites
             ? favourites.map((pokemon, index) => (
                 <Card
@@ -69,9 +57,9 @@ export default function Home() {
             : placeholder}
         </div>
       </section>
-      <section style={styles.section}>
-        <h2 style={styles.heading}>Added recently</h2>
-        <div style={styles.cardContainer}>
+      <section className={styles.section}>
+        <h2 className={styles.heading}>Added recently</h2>
+        <div className={styles.cardContainer}>
           <Card />
           <Card />
           <Card />
