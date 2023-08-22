@@ -3,7 +3,6 @@
 import * as PokeAPI from "@/api/methods";
 import { useEffect, useState } from "react";
 
-import Image from "next/image";
 import Page from "@/components/foundations/Page";
 import Card from "@/components/elements/Card";
 
