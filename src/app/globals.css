@@ -1,5 +1,8 @@
 :root {
   --background-color-layout: lightgrey;
+  --color-blue: #3e7cff;
+  --color-yellow: #ffdb00;
+  --color-pink: #ff72af;
   --type-color-normal-bg: rgb(224, 224, 224);
   --type-color-fighting-bg: rgb(142, 117, 117);
   --type-color-flying-bg: rgb(210, 200, 255);

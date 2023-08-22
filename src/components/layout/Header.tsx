@@ -8,9 +8,14 @@ const styles = {
     marginBottom: "20px",
   },
   logo: {
-    backgroundColor: "var(--background-color-layout)",
-    width: "30px",
-    height: "30px",
+    fontFamily: "Nabla, cursive",
+    fontSize: "2em",
+    fontVariationSettings: "'EDPT' 50",
+    backgroundColor: "var(--color-blue)",
+    padding: "0 12px",
+    borderRadius: "10px",
+    border: "5px solid var(--color-yellow)",
+    boxShadow: "0px 0px 0px 4px var(--color-pink)",
   },
   navList: {
     listStyleType: "none",
@@ -21,18 +26,15 @@ const styles = {
   navItems: {
     padding: "10px 20px",
   },
-  logoLink: {
-    display: "block",
-    width: "100%",
-    height: "100%",
-  },
 };
 
 export default function Header() {
   return (
     <header style={styles.container}>
       <div style={styles.logo}>
-        <Link style={styles.logoLink} href="/" />
+        <Link style={styles.logoLink} href="/">
+          pokéapp
+        </Link>
       </div>
       <nav>
         <ul style={styles.navList}>

@@ -7,12 +7,16 @@ const styles = {
     boxShadow: "0px 3px 10px lightgrey",
     borderRadius: "5px",
     margin: "0 20px 20px 0",
+    backgroundColor: "var(--color-blue)",
+    color: "white",
   },
   placeholders: {
     image: {
       width: "100%",
       height: "200px",
       objectFit: "none",
+      border: "5px solid var(--color-yellow)",
+      borderRadius: "5px",
     },
   },
   title: {
