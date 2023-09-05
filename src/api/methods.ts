@@ -63,7 +63,7 @@ export function getCaptured() {
   return getData({ list: results });
 }
 
-export function getFree() {
+export function getNotCaptured() {
   const results = pokemonList.results.filter(
     (pokemon) => !captured.includes(pokemon.name),
   );

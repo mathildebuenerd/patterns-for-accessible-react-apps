@@ -23,7 +23,9 @@ function parsedCards(response: PokeAPIPokemon[]): PokemonCard[] {
 
 export default function Home() {
   const [capturedList, setCapturedList] = useState<PokemonCard[] | null>(null);
-  const [freeList, setFreeList] = useState<PokemonCard[] | null>(null);
+  const [notCapturedList, setNotCapturedList] = useState<PokemonCard[] | null>(
+    null,
+  );
 
   useEffect(() => {
     async function getPokemons() {
@@ -31,9 +33,9 @@ export default function Home() {
       const parsedCaptured = parsedCards(captured);
       setCapturedList(parsedCaptured);
 
-      const free = await PokeAPI.getFree();
-      const parsedFree = parsedCards(free);
-      setFreeList(parsedFree);
+      const notCaptured = await PokeAPI.getNotCaptured();
+      const parsedNotCaptured = parsedCards(notCaptured);
+      setNotCapturedList(parsedNotCaptured);
     }
 
     getPokemons();
@@ -44,16 +46,16 @@ export default function Home() {
 
     const newCapturedList = [
       ...(capturedList && capturedList),
-      freeList?.find((pokemon) => pokemon.name === pokemonName),
+      notCapturedList?.find((pokemon) => pokemon.name === pokemonName),
     ];
 
     setCapturedList(newCapturedList);
 
-    const newFreeList = freeList?.filter(
+    const newNotCapturedList = notCapturedList?.filter(
       (pokemon) => pokemon.name !== pokemonName,
     );
 
-    setFreeList(newFreeList);
+    setNotCapturedList(newNotCapturedList);
   };
 
   const placeholder = (
@@ -85,8 +87,8 @@ export default function Home() {
       <section className={styles.section}>
         <h2 className={styles.heading}>Free</h2>
         <div className={styles.cardContainer}>
-          {freeList
-            ? freeList.map((pokemon, index) => (
+          {notCapturedList
+            ? notCapturedList.map((pokemon, index) => (
                 <Card
                   key={pokemon.name + index}
                   title={pokemon.name}
