@@ -6,6 +6,19 @@ import styles from "./SearchBar.module.css";
 
 const searchBarId = "search-bar-input";
 
+import { AriaAttributes } from "react";
+interface Props {
+  ariaAttributes: AriaAttributes;
+}
+
+function CustomNav({ ariaAttributes }: Props) {
+  return <nav {...ariaAttributes}>Nav</nav>;
+}
+
+function App() {
+  return <CustomNav ariaAttributes={{ "aria-labelledby": "id" }} />;
+}
+
 export default function SearchBar() {
   const router = useRouter();
   const searchParams = useSearchParams();

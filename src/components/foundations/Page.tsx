@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
-import SearchBar from "../elements/SearchBar";
+import SearchBar from "../../component_library/SearchBar";
 
 interface Props extends PropsWithChildren {
   title: string;

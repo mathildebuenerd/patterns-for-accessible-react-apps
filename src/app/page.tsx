@@ -4,7 +4,7 @@ import * as PokeAPI from "@/api/methods";
 import { useEffect, useState } from "react";
 
 import Page from "@/components/foundations/Page";
-import Card from "@/components/elements/Card";
+import Card from "@/component_library/Card";
 
 import styles from "./page.module.css";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import * as PokeAPI from "@/api/methods";
-import Card from "@/components/elements/Card";
+import Card from "@/component_library/Card";
 import Page from "@/components/foundations/Page";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
