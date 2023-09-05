@@ -1,6 +1,7 @@
 import pokemonList from "../../database/pokemon-list-251.json" assert { type: "json" };
 
 export const DEFAULT_LIMIT = 9;
+const captured = ["bulbasaur", "tangela"];
 
 export function search({
   query,
@@ -54,12 +55,24 @@ export function getData({
   );
 }
 
-export function getFavourites() {
-  const favorites = ["chikorita", "tangela", "misdreavus", "celebi"];
-
+export function getCaptured() {
   const results = pokemonList.results.filter((pokemon) =>
-    favorites.includes(pokemon.name),
+    captured.includes(pokemon.name),
   );
 
   return getData({ list: results });
+}
+
+export function getFree() {
+  const results = pokemonList.results.filter(
+    (pokemon) => !captured.includes(pokemon.name),
+  );
+
+  return getData({ list: results });
+}
+
+export function setCaptured(pokemonName: string) {
+  const pokemon = search({ query: pokemonName });
+
+  captured.push(pokemon[0].name);
 }

@@ -7,28 +7,54 @@ import Page from "@/components/foundations/Page";
 import Card from "@/component_library/Card";
 
 import styles from "./page.module.css";
+import { PokemonCard } from "@/types/pokemon";
+
+function parsedCards(response: PokeAPIPokemon[]): PokemonCard[] {
+  console.log({ response });
+  return response.reduce((acc: PokemonCard[], card) => {
+    acc.push({
+      name: card.name,
+      type: card.types[0].type.name,
+      image: card.sprites.front_default,
+    });
+    return acc;
+  }, []);
+}
 
 export default function Home() {
-  const [favourites, setFavourites] = useState<Pokemon[] | null>(null);
+  const [capturedList, setCapturedList] = useState<PokemonCard[] | null>(null);
+  const [freeList, setFreeList] = useState<PokemonCard[] | null>(null);
 
   useEffect(() => {
     async function getPokemons() {
-      const response = await PokeAPI.getFavourites();
-      console.log({ response });
+      const captured = await PokeAPI.getCaptured();
+      const parsedCaptured = parsedCards(captured);
+      setCapturedList(parsedCaptured);
 
-      const parsedCards = response.reduce((acc: Pokemon[], card) => {
-        acc.push({
-          name: card.name,
-          type: card.types[0].type.name,
-          image: card.sprites.front_default,
-        });
-        return acc;
-      }, []);
-
-      setFavourites(parsedCards);
+      const free = await PokeAPI.getFree();
+      const parsedFree = parsedCards(free);
+      setFreeList(parsedFree);
     }
+
     getPokemons();
   }, []);
+
+  const handleCapture = (pokemonName: string) => {
+    PokeAPI.setCaptured(pokemonName);
+
+    const newCapturedList = [
+      ...(capturedList && capturedList),
+      freeList?.find((pokemon) => pokemon.name === pokemonName),
+    ];
+
+    setCapturedList(newCapturedList);
+
+    const newFreeList = freeList?.filter(
+      (pokemon) => pokemon.name !== pokemonName,
+    );
+
+    setFreeList(newFreeList);
+  };
 
   const placeholder = (
     <>
@@ -42,10 +68,10 @@ export default function Home() {
   return (
     <Page title="Home">
       <section className={styles.section}>
-        <h2 className={styles.heading}>My favourites</h2>
+        <h2 className={styles.heading}>Captured</h2>
         <div className={styles.cardContainer}>
-          {favourites
-            ? favourites.map((pokemon, index) => (
+          {capturedList
+            ? capturedList.map((pokemon, index) => (
                 <Card
                   key={pokemon.name + index}
                   title={pokemon.name}
@@ -57,11 +83,22 @@ export default function Home() {
         </div>
       </section>
       <section className={styles.section}>
-        <h2 className={styles.heading}>Added recently</h2>
+        <h2 className={styles.heading}>Free</h2>
         <div className={styles.cardContainer}>
-          <Card />
-          <Card />
-          <Card />
+          {freeList
+            ? freeList.map((pokemon, index) => (
+                <Card
+                  key={pokemon.name + index}
+                  title={pokemon.name}
+                  description={pokemon.type}
+                  imageSrc={pokemon.image}
+                  primaryAction={{
+                    label: "Capture",
+                    onClick: () => handleCapture(pokemon.name),
+                  }}
+                />
+              ))
+            : placeholder}
         </div>
       </section>
     </Page>
