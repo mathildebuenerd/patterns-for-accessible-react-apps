@@ -85,7 +85,7 @@ export default function Home() {
         </div>
       </section>
       <section className={styles.section}>
-        <h2 className={styles.heading}>Free</h2>
+        <h2 className={styles.heading}>Not captured</h2>
         <div className={styles.cardContainer}>
           {notCapturedList
             ? notCapturedList.map((pokemon, index) => (
