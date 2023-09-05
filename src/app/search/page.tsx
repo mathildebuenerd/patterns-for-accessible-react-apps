@@ -7,23 +7,18 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import styles from "./page.module.css";
-
-interface Pokemon {
-  name: string;
-  type: string;
-  image: string;
-}
+import { PokemonCard } from "@/types/pokemon";
 
 export default function Search() {
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("q");
-  const [pokemons, setPokemons] = useState<Pokemon[] | null>(null);
+  const [pokemons, setPokemons] = useState<PokemonCard[] | null>(null);
 
   useEffect(() => {
     async function getPokemons() {
       const response = await PokeAPI.getData({ query: searchQuery });
 
-      const parsedCards = response.reduce((acc: Pokemon[], card) => {
+      const parsedCards = response.reduce((acc: PokemonCard[], card) => {
         acc.push({
           name: card.name,
           type: card.types[0].type.name,
