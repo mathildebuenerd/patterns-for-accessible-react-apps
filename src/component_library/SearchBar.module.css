@@ -1,15 +1,27 @@
 .container {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  padding: 0 100px;
 }
 
 .label {
-  margin-bottom: 10px;
+  position: absolute;
+  margin: 22px 28px;
+  color: var(--color-blue);
+  font-size: 1em;
+  transition: 0.1s;
+}
+
+.label.inputFocused {
+  font-size: 0.7em;
+  margin-top: 8px;
 }
 
 .input {
-  border: 1px solid lightgrey;
-  font-size: 1.1em;
-  padding: 10px;
-  margin-bottom: 20px;
+  font-size: 1em;
+  padding: 20px 25px;
+  border-radius: 35px;
+  background-color: var(--color-lightgreen);
+  border: 2px solid var(--color-blue);
 }

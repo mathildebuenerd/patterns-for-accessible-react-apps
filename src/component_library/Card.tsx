@@ -57,7 +57,7 @@ export default function Card({
         <div className={styles.placeholdersImage}></div>
       )}
       <h3 className={styles.title}>{capitalizedTitle}</h3>
-      <p className={styles.description}>{description}</p>
+      <p>{description}</p>
       {primaryActionMarkup}
       {badgeMarkup}
     </article>

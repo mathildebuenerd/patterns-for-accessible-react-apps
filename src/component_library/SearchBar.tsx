@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import styles from "./SearchBar.module.css";
@@ -22,6 +23,7 @@ function App() {
 export default function SearchBar() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [inputFocused, setInputFocused] = useState<boolean>(false);
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -40,7 +42,10 @@ export default function SearchBar() {
 
   return (
     <div className={styles.container}>
-      <label className={styles.label} htmlFor={searchBarId}>
+      <label
+        className={`${styles.label} ${inputFocused ? styles.inputFocused : ""}`}
+        htmlFor={searchBarId}
+      >
         Search Pokémons
       </label>
       <input
@@ -48,6 +53,8 @@ export default function SearchBar() {
         id={searchBarId}
         type="search"
         onKeyDown={handleKeyDown}
+        onFocus={() => setInputFocused(true)}
+        onBlur={(event) => !event.target.value && setInputFocused(false)}
       />
     </div>
   );
