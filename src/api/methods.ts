@@ -68,7 +68,7 @@ export function getNotCaptured() {
     (pokemon) => !captured.includes(pokemon.name),
   );
 
-  return getData({ list: results });
+  return getData({ list: results, limit: 100 });
 }
 
 export function setCaptured(pokemonName: string) {
