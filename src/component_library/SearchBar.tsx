@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import styles from "./SearchBar.module.css";
 
@@ -22,7 +22,6 @@ function App() {
 
 export default function SearchBar() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [inputFocused, setInputFocused] = useState<boolean>(false);
 
   const handleKeyDown = (event) => {
