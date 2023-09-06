@@ -24,19 +24,32 @@
 }
 
 .badge {
-  padding: 4px 8px 4px 6px;
-  background-color: #a6d3ff;
-  color: var(--color-blue-text-on-light-bg);
+  padding: 4px 20px 4px 6px;
+  color: white;
   font-size: 0.8em;
+  font-weight: 500;
   display: flex;
-  border-radius: 12px;
-  margin-top: 5px;
-  align-self: flex-start;
+  border-radius: 0 0 0 12px;
+  margin-right: -10px;
+  align-self: flex-end;
+  background-color: var(--color-blue);
   align-items: center;
+  position: absolute;
 }
 
 .badgeImage {
   width: 15px;
   height: 15px;
   margin-right: 5px;
+}
+
+.description {
+  font-size: 0.8em;
+  border: 2px solid var(--color-blue-light);
+  align-self: flex-start;
+  border-radius: 15px;
+  padding: 0 6px;
+  background-color: var(--color-blue-light);
+  color: var(--color-blue-text-on-light-bg);
+  text-transform: capitalize;
 }

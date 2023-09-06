@@ -47,6 +47,7 @@ export default function Card({
 
   return (
     <article className={styles.container}>
+      {badgeMarkup}
       {imageSrc ? (
         <img
           src={imageSrc}
@@ -57,9 +58,8 @@ export default function Card({
         <div className={styles.placeholdersImage}></div>
       )}
       <h3 className={styles.title}>{capitalizedTitle}</h3>
-      <p>{description}</p>
+      <p className={styles.description}>{description}</p>
       {primaryActionMarkup}
-      {badgeMarkup}
     </article>
   );
 }
