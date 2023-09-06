@@ -1,8 +1,10 @@
 :root {
   --background-color-layout: lightgrey;
   --color-blue: #3e7cff;
+  --color-blue-light: #ceddff;
   --color-yellow: #ffdb00;
   --color-pink: #ff72af;
+  --color-lightgreen: #e7ffc2;
   --type-color-normal-bg: rgb(224, 224, 224);
   --type-color-fighting-bg: rgb(142, 117, 117);
   --type-color-flying-bg: rgb(210, 200, 255);
@@ -22,23 +24,57 @@
   --type-color-fairy-bg: rgb(253, 190, 255);
 }
 
-.type-normal-bg-color { background-color: var(--type-color-normal-bg); }
-.type-fighting-bg-color { background-color: var(--type-color-fighting-bg); }
-.type-flying-bg-color { background-color: var(--type-color-flying-bg); }
-.type-poison-bg-color { background-color: var(--type-color-poison-bg); }
-.type-ground-bg-color { background-color: var(--type-color-ground-bg); }
-.type-rock-bg-color { background-color: var(--type-color-rock-bg); }
-.type-bug-bg-color { background-color: var(--type-color-bug-bg); }
-.type-ghost-bg-color { background-color: var(--type-color-ghost-bg); }
-.type-steel-bg-color { background-color: var(--type-color-steel-bg); }
-.type-fire-bg-color { background-color: var(--type-color-fire-bg); }
-.type-water-bg-color { background-color: var(--type-color-water-bg); }
-.type-grass-bg-color { background-color: var(--type-color-grass-bg); }
-.type-electric-bg-color { background-color: var(--type-color-electric-bg); }
-.type-psychic-bg-color { background-color: var(--type-color-psychic-bg); }
-.type-ice-bg-color { background-color: var(--type-color-ice-bg); }
-.type-dragon-bg-color { background-color: var(--type-color-dragon-bg); }
-.type-fairy-bg-color { background-color: var(--type-color-fairy-bg); }
+.type-normal-bg-color {
+  background-color: var(--type-color-normal-bg);
+}
+.type-fighting-bg-color {
+  background-color: var(--type-color-fighting-bg);
+}
+.type-flying-bg-color {
+  background-color: var(--type-color-flying-bg);
+}
+.type-poison-bg-color {
+  background-color: var(--type-color-poison-bg);
+}
+.type-ground-bg-color {
+  background-color: var(--type-color-ground-bg);
+}
+.type-rock-bg-color {
+  background-color: var(--type-color-rock-bg);
+}
+.type-bug-bg-color {
+  background-color: var(--type-color-bug-bg);
+}
+.type-ghost-bg-color {
+  background-color: var(--type-color-ghost-bg);
+}
+.type-steel-bg-color {
+  background-color: var(--type-color-steel-bg);
+}
+.type-fire-bg-color {
+  background-color: var(--type-color-fire-bg);
+}
+.type-water-bg-color {
+  background-color: var(--type-color-water-bg);
+}
+.type-grass-bg-color {
+  background-color: var(--type-color-grass-bg);
+}
+.type-electric-bg-color {
+  background-color: var(--type-color-electric-bg);
+}
+.type-psychic-bg-color {
+  background-color: var(--type-color-psychic-bg);
+}
+.type-ice-bg-color {
+  background-color: var(--type-color-ice-bg);
+}
+.type-dragon-bg-color {
+  background-color: var(--type-color-dragon-bg);
+}
+.type-fairy-bg-color {
+  background-color: var(--type-color-fairy-bg);
+}
 
 * {
   box-sizing: border-box;
