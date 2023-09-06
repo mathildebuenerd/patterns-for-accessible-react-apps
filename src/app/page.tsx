@@ -69,7 +69,7 @@ export default function Home() {
   );
 
   return (
-    <Page title="Home">
+    <Page title="Pokémon list">
       <section className={styles.section}>
         <h2 className={styles.heading}>Captured</h2>
         <div className={`${styles.cardContainer} ${styles.captured}`}>
