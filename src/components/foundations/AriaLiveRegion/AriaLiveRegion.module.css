@@ -1,0 +1,12 @@
+.container {
+  top: 20px;
+  position: fixed;
+  right: 20px;
+  background-color: var(--color-lightgreen);
+  border: 2px solid var(--color-blue);
+  padding: 10px 15px;
+  z-index: 9999;
+  border-radius: 0 0 0 20px;
+  font-size: 0.9em;
+  box-shadow: 3px 3px 0 0 var(--color-blue);
+}
