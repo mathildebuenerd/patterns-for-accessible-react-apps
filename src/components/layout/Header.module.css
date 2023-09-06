@@ -7,8 +7,8 @@
 
 .logo {
   background-color: var(--color-lightgreen);
-  padding: 10px;
-  border-radius: 20px;
+  padding: 10px 17px;
+  border-radius: 30px;
   color: var(--color-blue-text);
   box-shadow: 5px 5px 0 0px var(--color-blue);
   border: 2px solid var(--color-blue);
