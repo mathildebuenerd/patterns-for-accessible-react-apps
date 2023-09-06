@@ -2,6 +2,7 @@
 
 import * as PokeAPI from "@/api/methods";
 import { useEffect, useState } from "react";
+import iconPokeball from "@/assets/icon-pokeball.svg";
 
 import Page from "@/components/foundations/Page";
 import Card from "@/component_library/Card";
@@ -71,7 +72,7 @@ export default function Home() {
     <Page title="Home">
       <section className={styles.section}>
         <h2 className={styles.heading}>Captured</h2>
-        <div className={styles.cardContainer}>
+        <div className={`${styles.cardContainer} ${styles.captured}`}>
           {capturedList
             ? capturedList.map((pokemon, index) => (
                 <Card
@@ -79,6 +80,10 @@ export default function Home() {
                   title={pokemon.name}
                   description={pokemon.type}
                   imageSrc={pokemon.image}
+                  badge={{
+                    label: "Captured",
+                    imageSrc: iconPokeball,
+                  }}
                 />
               ))
             : placeholder}

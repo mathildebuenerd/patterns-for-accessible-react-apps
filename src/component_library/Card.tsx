@@ -3,6 +3,7 @@ interface Props {
   description?: string;
   imageSrc?: string;
   primaryAction?: Action;
+  badge?: Badge;
 }
 
 interface Action {
@@ -10,6 +11,12 @@ interface Action {
   onClick: () => void;
 }
 
+interface Badge {
+  label: string;
+  imageSrc: string;
+}
+
+import Image from "next/image";
 import Button from "./Button";
 import styles from "./Card.module.css";
 
@@ -18,6 +25,7 @@ export default function Card({
   description = "Description",
   imageSrc,
   primaryAction,
+  badge,
 }: Props) {
   const descriptionClassName = description
     ? `type-${description}-bg-color`
@@ -25,7 +33,16 @@ export default function Card({
   const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1);
 
   const primaryActionMarkup = primaryAction ? (
-    <Button onClick={primaryAction.onClick}>{primaryAction.label}</Button>
+    <Button variant="primary" onClick={primaryAction.onClick}>
+      {primaryAction.label}
+    </Button>
+  ) : null;
+
+  const badgeMarkup = badge ? (
+    <div className={styles.badge}>
+      <Image className={styles.badgeImage} src={badge.imageSrc} alt="" />
+      <span>{badge.label}</span>
+    </div>
   ) : null;
 
   return (
@@ -42,6 +59,7 @@ export default function Card({
       <h3 className={styles.title}>{capitalizedTitle}</h3>
       <p>{description}</p>
       {primaryActionMarkup}
+      {badgeMarkup}
     </article>
   );
 }
