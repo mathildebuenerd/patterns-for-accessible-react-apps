@@ -8,7 +8,7 @@
   --color-pink: #ff72af;
   --color-lightgreen: #e7ffc2;
   --type-color-normal-bg: rgb(224, 224, 224);
-  --type-color-fighting-bg: rgb(142, 117, 117);
+  --type-color-fighting-bg: rgb(221, 177, 177);
   --type-color-flying-bg: rgb(210, 200, 255);
   --type-color-poison-bg: rgb(235, 179, 255);
   --type-color-ground-bg: rgb(214, 195, 180);
@@ -19,7 +19,7 @@
   --type-color-fire-bg: rgb(255, 179, 179);
   --type-color-water-bg: rgb(159, 191, 255);
   --type-color-grass-bg: rgb(159, 255, 152);
-  --type-color-electric-bg: rgb(245, 255, 171);
+  --type-color-electric-bg: rgb(255, 249, 132);
   --type-color-psychic-bg: rgb(194, 181, 255);
   --type-color-ice-bg: rgb(171, 244, 255);
   --type-color-dragon-bg: rgb(168, 149, 255);

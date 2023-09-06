@@ -32,13 +32,11 @@ export default function Card({
     <article className={styles.container}>
       {badgeMarkup}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={imageSrc}
-        className={`${styles.placeholdersImage} type-${description}-bg-color`}
-        alt=""
-      />
+      <img src={imageSrc} className={styles.image} alt="" />
       <h3 className={styles.title}>{formatTitle(title)}</h3>
-      <p className={styles.description}>{description}</p>
+      <p className={`${styles.description} type-${description}-bg-color`}>
+        {description}
+      </p>
       {primaryAction ? primaryAction : null}
     </article>
   );
