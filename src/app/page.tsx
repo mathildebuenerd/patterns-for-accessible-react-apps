@@ -1,7 +1,6 @@
 "use client";
 
 import * as PokeAPI from "@/api/methods";
-import { useEffect, useState } from "react";
 import iconPokeball from "@/assets/icon-pokeball.svg";
 
 import Page from "@/components/foundations/Page";

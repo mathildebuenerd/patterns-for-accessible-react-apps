@@ -30,6 +30,33 @@ export function useLists() {
   };
 }
 
+export function useSearchByName(searchQuery: string | null) {
+  const [pokemons, setPokemons] = useState<PokemonCard[] | null>(null);
+
+  useEffect(() => {
+    async function getPokemons() {
+      const response = await PokeAPI.getData({ query: searchQuery });
+
+      const parsedCards = response.reduce((acc: PokemonCard[], card) => {
+        acc.push({
+          name: card.name,
+          type: card.types[0].type.name,
+          image: card.sprites.front_default,
+        });
+        return acc;
+      }, []);
+
+      setPokemons(parsedCards);
+    }
+
+    getPokemons();
+  }, [searchQuery]);
+
+  return {
+    pokemons,
+  };
+}
+
 // Utilities
 
 function parsedCards(response: PokeAPIPokemon[]): PokemonCard[] {
