@@ -4,7 +4,7 @@
   border-radius: 20px;
   display: inline-block;
   align-self: flex-end;
-  color: #003ec2;
+  color: var(--color-blue-text);
   font-weight: 500;
   cursor: pointer;
   background-color: white;

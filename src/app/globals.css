@@ -1,7 +1,9 @@
 :root {
   --background-color-layout: lightgrey;
   --color-blue: #3e7cff;
+  --color-blue-text: #004df0;
   --color-blue-light: #ceddff;
+  --color-blue-text-on-light-bg: #003fc5;
   --color-yellow: #ffdb00;
   --color-pink: #ff72af;
   --color-lightgreen: #e7ffc2;

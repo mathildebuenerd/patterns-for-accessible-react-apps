@@ -24,14 +24,15 @@
 }
 
 .badge {
-  padding: 4px 5px;
+  padding: 4px 8px 4px 6px;
   background-color: #a6d3ff;
-  color: #0060bd;
+  color: var(--color-blue-text-on-light-bg);
   font-size: 0.8em;
   display: flex;
   border-radius: 12px;
   margin-top: 5px;
   align-self: flex-start;
+  align-items: center;
 }
 
 .badgeImage {
