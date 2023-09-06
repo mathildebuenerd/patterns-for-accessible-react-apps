@@ -9,6 +9,7 @@ import Card from "@/component_library/Card";
 
 import styles from "./page.module.css";
 import { PokemonCard } from "@/types/pokemon";
+import Button from "@/component_library/Button";
 
 function parsedCards(response: PokeAPIPokemon[]): PokemonCard[] {
   console.log({ response });
@@ -99,10 +100,14 @@ export default function Home() {
                   title={pokemon.name}
                   description={pokemon.type}
                   imageSrc={pokemon.image}
-                  primaryAction={{
-                    label: "Capture",
-                    onClick: () => handleCapture(pokemon.name),
-                  }}
+                  primaryAction={
+                    <Button
+                      variant="primary"
+                      onClick={() => handleCapture(pokemon.name)}
+                    >
+                      Capture
+                    </Button>
+                  }
                 />
               ))
             : placeholder}

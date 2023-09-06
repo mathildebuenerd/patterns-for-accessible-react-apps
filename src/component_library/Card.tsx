@@ -2,7 +2,7 @@ interface Props {
   title?: string;
   description?: string;
   imageSrc?: string;
-  primaryAction?: Action;
+  primaryAction?: JSX.Element;
   badge?: Badge;
 }
 
@@ -17,7 +17,6 @@ interface Badge {
 }
 
 import Image from "next/image";
-import Button from "./Button";
 import styles from "./Card.module.css";
 
 export default function Card({
@@ -32,11 +31,7 @@ export default function Card({
     : "";
   const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1);
 
-  const primaryActionMarkup = primaryAction ? (
-    <Button variant="primary" onClick={primaryAction.onClick}>
-      {primaryAction.label}
-    </Button>
-  ) : null;
+  const primaryActionMarkup = primaryAction ? primaryAction : null;
 
   const badgeMarkup = badge ? (
     <div className={styles.badge}>
