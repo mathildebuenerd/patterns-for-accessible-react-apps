@@ -101,10 +101,7 @@ export default function Home() {
                   description={pokemon.type}
                   imageSrc={pokemon.image}
                   primaryAction={
-                    <Button
-                      variant="primary"
-                      onClick={() => handleCapture(pokemon.name)}
-                    >
+                    <Button onClick={() => handleCapture(pokemon.name)}>
                       Capture
                     </Button>
                   }
