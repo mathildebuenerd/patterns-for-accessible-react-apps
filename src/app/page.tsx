@@ -8,40 +8,12 @@ import Page from "@/components/foundations/Page";
 import Card from "@/component_library/Card";
 
 import styles from "./page.module.css";
-import { PokemonCard } from "@/types/pokemon";
 import Button from "@/component_library/Button";
-
-function parsedCards(response: PokeAPIPokemon[]): PokemonCard[] {
-  console.log({ response });
-  return response.reduce((acc: PokemonCard[], card) => {
-    acc.push({
-      name: card.name,
-      type: card.types[0].type.name,
-      image: card.sprites.front_default,
-    });
-    return acc;
-  }, []);
-}
+import { useLists } from "@/api/hooks/usePokeAPI";
 
 export default function Home() {
-  const [capturedList, setCapturedList] = useState<PokemonCard[] | null>(null);
-  const [notCapturedList, setNotCapturedList] = useState<PokemonCard[] | null>(
-    null,
-  );
-
-  useEffect(() => {
-    async function getPokemons() {
-      const captured = await PokeAPI.getCaptured();
-      const parsedCaptured = parsedCards(captured);
-      setCapturedList(parsedCaptured);
-
-      const notCaptured = await PokeAPI.getNotCaptured();
-      const parsedNotCaptured = parsedCards(notCaptured);
-      setNotCapturedList(parsedNotCaptured);
-    }
-
-    getPokemons();
-  }, []);
+  const { capturedList, setCapturedList, notCapturedList, setNotCapturedList } =
+    useLists();
 
   const handleCapture = (pokemonName: string) => {
     PokeAPI.setCaptured(pokemonName);
@@ -59,15 +31,6 @@ export default function Home() {
 
     setNotCapturedList(newNotCapturedList);
   };
-
-  const placeholder = (
-    <>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-    </>
-  );
 
   return (
     <Page title="Pokémon list">
@@ -87,7 +50,7 @@ export default function Home() {
                   }}
                 />
               ))
-            : placeholder}
+            : null}
         </div>
       </section>
       <section className={styles.section}>
@@ -107,7 +70,7 @@ export default function Home() {
                   }
                 />
               ))
-            : placeholder}
+            : null}
         </div>
       </section>
     </Page>
