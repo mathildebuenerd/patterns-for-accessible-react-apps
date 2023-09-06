@@ -1,0 +1,20 @@
+.primary {
+  padding: 8px 20px;
+  border: 2px solid var(--color-blue);
+  border-radius: 20px;
+  display: inline-block;
+  align-self: flex-end;
+  color: #003ec2;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: white;
+}
+
+.primary:hover {
+  background-color: var(--color-blue-light);
+  box-shadow: 2px 2px 0px 0px var(--color-blue);
+}
+
+.primary:focus {
+  box-shadow: 0px 0px 0 5px var(--color-yellow);
+}
