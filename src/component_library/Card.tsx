@@ -28,16 +28,24 @@ export default function Card({
     </div>
   ) : null;
 
+  const descriptionMarkup = (
+    <p className={`${styles.description} type-${description}-bg-color`}>
+      {description}
+    </p>
+  );
+
+  const primaryActionMarkup = primaryAction ? primaryAction : null;
+
+  // eslint-disable-next-line @next/next/no-img-element
+  const imageMarkup = <img src={imageSrc} className={styles.image} alt="" />;
+
   return (
     <article className={styles.container}>
       {badgeMarkup}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={imageSrc} className={styles.image} alt="" />
+      {imageMarkup}
       <h3 className={styles.title}>{formatTitle(title)}</h3>
-      <p className={`${styles.description} type-${description}-bg-color`}>
-        {description}
-      </p>
-      {primaryAction ? primaryAction : null}
+      {descriptionMarkup}
+      {primaryActionMarkup}
     </article>
   );
 }
