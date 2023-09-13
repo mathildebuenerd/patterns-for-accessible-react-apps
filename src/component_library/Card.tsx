@@ -15,12 +15,14 @@ interface Badge {
 }
 
 export default function Card({
-  title,
+  title: unformattedTitle,
   description,
   imageSrc,
   primaryAction,
   badge,
 }: Props) {
+  const title = formatTitle(unformattedTitle);
+
   const badgeMarkup = badge ? (
     <div className={styles.badge}>
       <Image className={styles.badgeImage} src={badge.imageSrc} alt="" />
@@ -43,7 +45,7 @@ export default function Card({
     <article className={styles.container}>
       {badgeMarkup}
       {imageMarkup}
-      <h3 className={styles.title}>{formatTitle(title)}</h3>
+      <h3 className={styles.title}>{title}</h3>
       {descriptionMarkup}
       {primaryActionMarkup}
     </article>
