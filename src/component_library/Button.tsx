@@ -1,5 +1,11 @@
 "use client";
-import { AriaAttributes, PropsWithChildren } from "react";
+import {
+  type AriaAttributes,
+  type PropsWithChildren,
+  forwardRef,
+  RefObject,
+  ForwardedRef,
+} from "react";
 import styles from "./Button.module.css";
 
 interface Props extends PropsWithChildren {
@@ -8,14 +14,13 @@ interface Props extends PropsWithChildren {
   ariaAttributes: AriaAttributes;
 }
 
-export default function Button({
-  children,
-  type = "button",
-  onClick,
-  ariaAttributes,
-}: Props) {
+export const Button = forwardRef(function Button(
+  { children, type = "button", onClick, ariaAttributes }: Props,
+  ref: ForwardedRef<HTMLButtonElement>,
+) {
   return (
     <button
+      ref={ref}
       className={styles.primary}
       type={type}
       onClick={onClick}
@@ -24,4 +29,4 @@ export default function Button({
       {children}
     </button>
   );
-}
+});
