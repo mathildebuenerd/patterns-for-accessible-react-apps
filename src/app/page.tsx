@@ -53,7 +53,12 @@ function HomeContent() {
                   description={pokemon.type}
                   imageSrc={pokemon.image}
                   primaryAction={
-                    <Button onClick={() => handleCapture(pokemon.name)}>
+                    <Button
+                      onClick={() => handleCapture(pokemon.name)}
+                      ariaAttributes={{
+                        "aria-label": `Capture ${pokemon.name}`,
+                      }}
+                    >
                       Capture
                     </Button>
                   }

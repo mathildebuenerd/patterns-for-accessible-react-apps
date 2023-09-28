@@ -1,15 +1,26 @@
 "use client";
-import { PropsWithChildren } from "react";
+import { AriaAttributes, PropsWithChildren } from "react";
 import styles from "./Button.module.css";
 
 interface Props extends PropsWithChildren {
   onClick?: () => void;
   type?: HTMLButtonElement["type"];
+  ariaAttributes: AriaAttributes;
 }
 
-export default function Button({ children, type = "button", onClick }: Props) {
+export default function Button({
+  children,
+  type = "button",
+  onClick,
+  ariaAttributes,
+}: Props) {
   return (
-    <button className={styles.primary} type={type} onClick={onClick}>
+    <button
+      className={styles.primary}
+      type={type}
+      onClick={onClick}
+      {...ariaAttributes}
+    >
       {children}
     </button>
   );
